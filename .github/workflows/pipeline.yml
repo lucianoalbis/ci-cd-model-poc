@@ -1,0 +1,90 @@
+name: Demo CI Pipeline (Simulated)
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout
+      - name: Checkout code
+        run: |
+          echo "=============================="
+          echo "STEP: CHECKOUT"
+          echo "Cloning repository..."
+          echo "=============================="
+
+      # 2. Install dependencies
+      - name: Install dependencies
+        run: |
+          echo "=============================="
+          echo "STEP: INSTALL DEPENDENCIES"
+          echo "Installing project dependencies..."
+          echo "=============================="
+
+      # 3. Unit Tests
+      - name: Run tests
+        run: |
+          echo "=============================="
+          echo "STEP: TESTS"
+          echo "Running unit tests..."
+          echo "✔ All tests passed!"
+          echo "=============================="
+
+      # 4. Code Quality
+      - name: Code quality (lint)
+        run: |
+          echo "=============================="
+          echo "STEP: CODE QUALITY"
+          echo "Running linter..."
+          echo "✔ No lint issues found!"
+          echo "=============================="
+
+      # 5. Sonar Analysis (simulated)
+      - name: SonarQube analysis
+        run: |
+          echo "=============================="
+          echo "STEP: SONAR ANALYSIS"
+          echo "Analyzing code quality with Sonar..."
+          echo "✔ Quality Gate PASSED!"
+          echo "=============================="
+
+      # 6. Security Scan
+      - name: Security checks
+        run: |
+          echo "=============================="
+          echo "STEP: SECURITY"
+          echo "Scanning dependencies..."
+          echo "✔ No critical vulnerabilities found!"
+          echo "=============================="
+
+      # 7. Build Artifact
+      - name: Build
+        run: |
+          echo "=============================="
+          echo "STEP: BUILD"
+          echo "Building application..."
+          mkdir -p dist
+          echo "artifact generated" > dist/app.txt
+          echo "✔ Build completed!"
+          echo "=============================="
+
+      # 8. Store Artifact
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: demo-artifact
+          path: dist/
+
+      # 9. Deploy (simulated)
+      - name: Deploy
+        run: |
+          echo "=============================="
+          echo "STEP: DEPLOY"
+          echo "Deploying application..."
+          echo "✔ Deployment successful!"
+          echo "=============================="
