@@ -19,9 +19,9 @@ It runs a sequence of steps that simulate a typical CI/CD flow:
 1. Checkout code
 2. Install dependencies
 3. Run tests
-4. Code quality checks
-5. Static analysis (Sonar simulation)
-6. Security scan
+4. Code quality checks (lint/format)
+5. Static analysis (Sonar simulation) (SonarQube)
+6. Security scan (SAST + dependencies)
 7. Build artifact
 8. Upload artifact
 9. Deploy
